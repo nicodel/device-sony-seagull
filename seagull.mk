@@ -12,4 +12,16 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/seagull.mk
+$(call inherit-product, device/sony/seagull/aosp_d5103.mk)
+
+PRODUCT_NAME := seagull
+PRODUCT_DEVICE := seagull
+PRODUCT_MODEL := Xperia T3 (B2G)
+
+GAIA_DEV_PIXELS_PER_PX := 2
+BOOTANIMATION_ASSET_SIZE := 720p
+
+PRODUCT_COPY_FILES += \
+    device/sony/seagull/bootrec-device:root/sbin/bootrec-device
+
+$(call inherit-product-if-exists, vendor/sony/seagull-blobs/seagull-blobs-vendor.mk)
